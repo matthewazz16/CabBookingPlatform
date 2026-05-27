@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cab Booking Platform</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <h1>🚕 Cab Booking Platform</h1>
+
+        <p>
+            Book rides, manage favourite locations and stay updated.
+        </p>
+
+    </header>
+
+    <main class="container">
+
+        <section class="card register-card">
+
+            <h2>Register</h2>
+
+            <input id="regFirstName" placeholder="First Name">
+            <input id="regSurname" placeholder="Surname">
+            <input id="regEmail" placeholder="Email">
+            <input id="regPassword" type="password" placeholder="Password">
+
+            <button onclick="registerUser()">
+                Register
+            </button>
+
+        </section>
+
+
+        <section class="card login-card">
+
+            <h2>Login</h2>
+
+            <input id="loginEmail" placeholder="Email">
+            <input id="loginPassword" type="password" placeholder="Password">
+
+            <button onclick="loginUser()">
+                Login
+            </button>
+
+        </section>
+
+
+        <section class="card booking-card">
+
+            <h2>Create Booking</h2>
+
+            <input id="pickupLocation" placeholder="Pickup Location">
+
+            <input id="destinationLocation" placeholder="Destination Location">
+
+            <input id="bookingDate" type="datetime-local">
+
+            <input id="passengers" type="number" placeholder="Passengers">
+
+            <select id="cabType">
+
+                <option>Economic</option>
+                <option>Premium</option>
+                <option>Executive</option>
+
+            </select>
+
+            <button onclick="createBooking()">
+                Create Booking
+            </button>
+
+        </section>
+
+
+        <section class="card location-card">
+
+            <h2>Favourite Locations</h2>
+
+            <input id="locationName" placeholder="Location Name">
+
+            <button onclick="addLocation()">
+                Add Location
+            </button>
+
+            <button onclick="getLocations()">
+                View Locations
+            </button>
+
+        </section>
+
+
+        <section class="card notification-card">
+
+            <h2>Notifications</h2>
+
+            <button onclick="getNotifications()">
+                View Notifications
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <section class="response-section">
+
+        <h2>System Output</h2>
+
+        <pre id="output"></pre>
+
+    </section>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
