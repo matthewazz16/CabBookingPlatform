@@ -143,5 +143,35 @@ router.get("/:id/notifications", async (req, res) => {
 
 });
 
+// ADD NOTIFICATION
+router.post("/:id/notifications", async (req, res) => {
+
+    try {
+
+        const { message } = req.body;
+
+        const user = await User.findById(req.params.id);
+
+        user.notifications.push({
+            message
+        });
+
+        await user.save();
+
+        res.json({
+            message: "Notification added successfully"
+        });
+
+    }
+    catch (error) {
+
+        res.status(500).json({
+            error: error.message
+        });
+
+    }
+
+});
+
 
 module.exports = router;

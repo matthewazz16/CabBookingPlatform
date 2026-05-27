@@ -14,6 +14,34 @@ router.post("/create", async (req, res) => {
 
         await booking.save();
 
+        setTimeout(async () => {
+
+    try {
+
+        await fetch(
+            `http://localhost:5000/api/users/${booking.customerId}/notifications`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    message: `Your cab from ${booking.pickupLocation} to ${booking.destinationLocation} is ready for pickup.`
+                })
+            }
+        );
+
+        console.log("Ride ready notification sent");
+
+    }
+    catch (error) {
+
+        console.log(error);
+
+    }
+
+}, 180000);
+
         res.status(201).json({
             message: "Booking created successfully",
             booking
